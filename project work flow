@@ -1,0 +1,93 @@
+oru project thudanghunnathinu munne cheyyandath
+------------------------------------------------
+
+step 1 -> npx express-generator --hbs    koduthu express generator install cheithu
+
+step 2 -> npm install    koduthu modules install cheithu
+
+step 3 -> npm audit fix   koduthu vulnerabilities fix cheithu
+
+step 4 -> npm install nodemon   koduthu nodemone setcheiyugha
+
+step 5 -> npm install express-handlebars koduthu hbs moduline install chikunnu
+
+step 6 -> nodemon bin/www ennu koduthu server start cheyugha shesham browseril poi localhost:3000 ennu koduthu brows cheyugha success fullai run avunnathanu
+===============================================================================================================
+
+aadhyam dummy aai object create cheithu enghane work cheyyam ennanu nokunnathu
+-------------------------------------------------------------------------------
+
+step 1 -> bootstrapil poi bootstrapinde linksum karyangalum add cheyyan vendi getting startedil starter templatile code copy cheithu index.hbsil paste cheyunnu
+
+step 2 -> athe bootstrapil poi projectinu suitavunna navbar sercheithu copy cheuthu index.hbsil paste cheyunnu datas modify cheyunnu
+
+step 3 -> products display cheyyan vendi cards layouts bootstrapunnu copy chethu index.hbs il paste cheyunnu ennittu namuku avisyamayareethiyil cards modify cheyyunnu
+
+step 4 -> select cheitha card paste cheyunnathinu productinai oru section create cheiyhu aa sectionil oru row div upyogichu set cheithu athil nalu products varunna reethiyil aa row div nullil inniyoru div il  col-md-3 enna calss name upayogicha aa sectione nalai arrainge cheyunnu
+
+step 5 -> aduthathu index.js il oru object array index,hbs sileku passcheyughayanu cheyunnathu nodejs upayogichu karanam koore products undengil athinanusarichu cardukal create cheiyhu kondirikanam athinupakaram loop upayogichu cheyunnathenghane eannariyan vendiyanu
+
+step 6 -> adhyam oru dummy array create cheyunnu athil nalu objects create cheithu responsil indexleku aa array pass cheyunnu
+
+step 7 -> index.hbs il poi for loopinu pakaram {{#each ArrayName}} ethu upayogichanu print cheyugha athupole aa loop {{/each}} upayogichu close cheyughayum cheyunnu ethil products matrame vannittullu but athile details vannittilla aa details varan eavidokke eanthallam details ano varandathu avidellam {{this.propertyName}} ethu upayogichu call cheyunnu propertyName ennu vechal nammal index.js il nalkirikunn product arrayile methodsinte name, category ennighane ullathine property ennu parayunnathu 
+===============================================================================================================
+
+enni namuku database upayogichu enghane objects edukam ennu nokkam
+-------------------------------------------------------------------
+
+adhyam databasileku details nalkanam athu nalkunnathu adminanu athukondu adminoru section adhyam create cheyyanam athukoodathe ee websitileku kerumbol userne user sectionilekum admine admin sectionilekum pokunna reethiyil root set cheyanam
+
+step 1 ->user sectionum num adminum sectionum leyout set cheyyan vendi views folderil oru leyout folder create cheyunnu aa folderil oru layout.hbs file create cheyunnu
+
+step 2 -> usernum adminum leyout set cheyumbol nammal nalkunna chila karyanghal dfrentairikum udhaharanathinu navbarilu foterilokke usernu adminum vythyastha taskairikum undavugha athinu viewsil thanne partials enna foldeil eathokke sections ano mattam varuthandethu ava user num adminum prthyag .hbs files create cheiyunnu
+
+step 3 -> usersinull pagekalum adminulla page kalum sepratai store cheyyan viewsil admin ennum user ennum randu folders create cheyunnu
+
+step 4 -> nammal create cheitha layoutsum partialsum app.js il poi evidekkeayanu files ullathennu path set cheithu kodukkunnu 
+
+step 5 -> aa path set cheyunnathu app.enginil aa foldersinte path set cheyugha anghane set cheyumbol app.js il hbs moduline immport cheikanam var hbs=require('express-handlebars') enninghane enghane ennathinu sheshame athu workavu enni pathu set cheyunna reethi nokkam 
+
+app.engine('hbs',hbs({extname:'hbs',defualtLayout:'layout',layoutsDir:__dirname+'/views/layout',partialsDir:__dirname+'/views/partials'})) 
+
+step 6 -> user sectionilum adimin sectionilum commanai varunna sections matram views folderile leyout folderil ulla leyout.hbs file il nalkuka bakiulla section namuku labikunnathu nammal ethu user sectionano adimine sectionano nalkiyathu athinanusarichulla sectionsairikum labikuka athinu nammal leyout file il {{{body}}} enninghane upayogikunnu enghane nalkumbol aa page lode avunnathanu
+
+step 7 -> enni viewsilulla index.hbs il commanai varunna bootsrtap navbars evayonnum athil avishyamilla paginu enthano vendathu athu matram nalkiyal mathi
+
+step 8 -> partials folderil chennu athile admin-header enna fililum user-header enna fililum layout filil ulla header section cut cheiyhu evide paste cheyunnu pinnidu athinu anusarichu mattam varuthunnu
+
+step 9 -> partial folderil userinum adminum randu header nalkirikunnu login cheyunna samayathu login cheithathu user ano adminano ennariyan index.js product pass cheyunnidathu comma ittu admin:true ennu pass cheyumbol layout.hbs filil vannu if condition upayogichu adminano alleyo ennu check cheyugha true avumbol admin sectionum display cheyunnu condition admin:false ennanengil user section display cheyunnu
+
+step 10 -> usersinum adminum randu routes nalkan routesil ulla index.js enna file user.js ennu rename cheithu  usersinum, users.js enna file rename cheithu admin.js akki athu admin filai create cheyunnu 
+
+step 11 -> shesham app.js vannu [ var usersRouter = require('./routes/users'); ] usernu pakaram admin ennu nalkuka userRouter nu pakaram adminRouter ennu nalkuka athupole [ var indexRouter = require('./routes/index'); ] ivide indexRouter nu pakaram userRouter ennum index inte aduthu user ennum nalkuka app.jsil thanne kurachu thazhe vannal [ app.use('/', indexRouter); ] ennu kanam athil indexRouter ennathu matti userRouter ennakuka athupole [ app.use('/users', usersRouter); ] ethil userRouter nu pakaram adminRouter ennum '/user' nu pakaram '/admin' ennum mattukha 
+
+step 12 -> routes folderil ulla admin.js il poi [ res.send('respond with a resource'); ] evide [ res.render('admin/view-product',{admin:true}) ] nalkuka oru coma ittu aranu access cheyunnathu ennariyan oru condition nalkunnu 
+
+step 13 -> adminu product list cheyyanu add cheyanumulla page create cheyyan views folderinullele admin folderil chennu oru view-products.hbs file create cheyunnu admine product pages adhikam table structure ayathuckondu bootstrapil oru simple table copy cheithu paste cheithu athil data add cheyyan user.js il ulla products list oru dummy ku vendi copy cheithu admin.js paste cheyunnu koode [ res.render('admin/view-products',{admin:true,products}); ] res.renderil conditionodappam products um nalkunnu
+
+step 14 -> routes il admin.js ulla data viewsil admin folderile view-procts.hbs il connect cheyyunnu enghane yanu conect cheyunnath ennuvechal adhyam oru table paste cheithitundairnu aa tablil hedding sectionum pinne oru loopiloode aa product objectine call cheithu this.property upayogichu athile datasine call cheyunnu athil puthiya product add cheyyan oru add buttonum upayogichirikunnu athile path nalkirikunnathu viewsil admin folderil add-product enna filileku link cheyunnu 
+
+step 15 -> add-productine vilikumbol routsile admin.js il poi routeril get method upayogichu (html page lode agunnathu kondu get um endhingilum submit cheyumbol post um anu upayogikunnathu) add-product enna html pagine call cheyunnu anghane call cheyumbol viewsil admin folderil add-product enna pagil product add cheyyanulla form nalkirikunnu aa formil eavidethekanu pogandethennu path(/admin/add-product)nalkuka kodathe form methode POST methode upayogikunnu file,image athupole yulla karyanghal formil upayogikumbol enctype="multipart/form-data ennu upayogikunnu aa form submit cheyumbol routesile admin.jsil [ res.render('admin/add-product') ] ennu enghane nalkunnu 
+
+step 16 -> routesile admin.js il poi post methde upayogichu add cheyunna data's varuthunnu enghane varuthumbol files karyanghal upload cheyumbol app.js il poi fileUpload [ var fileUpload=require('express-fileUpload') ] enna module require cheyyanam ee require cheitha file uplodine avidethanne oru object[ app.use(fileUpload()) ] enninghane create cheyugha 
+
+step 17 -> adhyam nammal formil nalkiya data submit button nalkumbol pass cheyunnundo ennariyan consolil print cheithu nokam athinu admin.js il console.log(req.body)ennukoduthal aa formil nalkunna data motham consolil print cheyunnathanu but files enthengilum undengil athu printavunnathalla athinu nammal pratyaghamai print cheyyanam athinu console.log(req.files.atributeName) ee atributeName ennuvechal html form nalkumbol image nalkan upayogikunna input tagil name eanna atributil nalkiya name anu atributeName athu koduthu print cheyumbol ella datayum printavunnathanu
+
+===============================================================================================================
+
+eni namuku database upayogichu cheyunnathu enghane yennu kanam 
+----------------------------------------------------------------
+
+step 1 -> adhyam project folderil(ShopingCart) config enna folder create dheyugha karanam athilanu databasinte conection ezhuthunnathu athinu vendi aa folderil connection.js enna file create cheyunnu connection.js il mongodb yude conection ezhuthznam athinu [ const mongoClient=require('mongodb').MongoClient ] enninghane mongodb module require cheyanam athinu shesham
+
+step 2 -> oru state enna costant object create cheithirikunnu athil db ennathine null value nalkirikunnu kode oru connect methodum get methodum ezhuthivechittundu get methodil state.db return cheyunna reethiyilanu ezhuthi vachirikunnathu
+
+step 3 -> app.js il vannu connect ennulla function call cheyyanam athinu db enna file edukana [ var db=require('./config/connection') ] enningane nalkunnu shesham connect enna function routes nalkiyathinu mughalilai db.connect enninghane nalkunnu athil oru callback function upayogikunnu aa callback functionullil if condition upayogichu error check cheyunnu
+
+      WORK FLOW OF DATABASE 
+      -----------------------
+      
+        *)   server adhyam varunnathu app.js fililekanu athil db.conect ennu nalkirikunnu db.connectile db 
+             ennu vechal app.js il thanne maghalilai [ var db=require('./config/connection') ] ennu nalkitundu
+             athil db ennathu /config/connection ee pathilulla connection.js file il poi connect functione
+             call cheyunnu aa functionil arguementai done enna callback function nalkirikunnu connect functionullil database connect cheyyanulla [ mongoClient.connect(url,(err,data) ] ee function nalkirikunnu ethinullil url um callback functionum upayogichirikunnu 
