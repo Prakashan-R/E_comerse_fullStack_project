@@ -11,6 +11,8 @@ step 4 -> npm install nodemon   koduthu nodemone setcheiyugha
 
 step 5 -> npm install express-handlebars koduthu hbs moduline install chikunnu
 
+step 6 -> npm install mongodb koduthu mongodb database install cheithu connection kodukuka
+
 step 6 -> nodemon bin/www ennu koduthu server start cheyugha shesham browseril poi localhost:3000 ennu koduthu brows cheyugha success fullai run avunnathanu
 ===============================================================================================================
 
@@ -87,7 +89,40 @@ step 3 -> app.js il vannu connect ennulla function call cheyyanam athinu db enna
       WORK FLOW OF DATABASE 
       -----------------------
       
-        *)   server adhyam varunnathu app.js fililekanu athil db.conect ennu nalkirikunnu db.connectile db 
-             ennu vechal app.js il thanne maghalilai [ var db=require('./config/connection') ] ennu nalkitundu
-             athil db ennathu /config/connection ee pathilulla connection.js file il poi connect functione
-             call cheyunnu aa functionil arguementai done enna callback function nalkirikunnu connect functionullil database connect cheyyanulla [ mongoClient.connect(url,(err,data) ] ee function nalkirikunnu ethinullil url um callback functionum upayogichirikunnu 
+      server adhyam varunnathu app.js fililekanu athil db.conect ennu nalkirikunnu db.connectile db 
+      ennu vechal app.js il thanne maghalilai [ var db=require('./config/connection') ] ennu nalkitundu
+      athil db ennathu /config/connection ee pathilulla connection.js file il poi connect functione
+      call cheyunnu aa functionil arguementai done enna callback function nalkirikunnu connect functionullil 
+      database connect cheyyanulla [ mongoClient.connect(url,(err,data) ] ee function nalkirikunnu ethinullil 
+      url um callback functionum upayogichirikunnu athil err,data um nalkittundu connectionil(url) err 
+      varukayanengil if conditionil poi error check cheithu error undingil callbackai vanna doninullil err 
+      return cheyunnu [ if(err) return done(err) ] enninghane athava state.db error onnum ellathe connect 
+      avughayanengil normalai nalkirikunna done() work avunnathanu 
+      
+      *) done(err) allengil done() work ayal app.js vannu err anengil db.connect il oru callback function 
+         nalkirunnu athile if condition check cheituhu error undengil error partum allengil database connected
+         to port 27017 ennu consolil kanikunnathanu 
+
+      *) chila samayathu err kanikum karanam mongodb run avathathukondanu anghane run avatha samayathu 
+                  sudo mkdir -p /data/db
+                  sudo chown -R $USER /data
+                  sudo mongod  -> enni coments nalki mongodb run cheyugha shesham database connect avunnathanu                 
+
+step 4 -> aduthathu databasilude object incert cheyyanam athinadyam admin.js filil poi athil database conectionsu isertionsum ee filil ninnum ozhivzkki oru comman filileku mattuka avidennu aa functionsine call cheithal matram mathi ee filil nammal routerum karanghalum matramanu set cheyunnathu
+
+step 5 -> ShopingCart enna project folderil helpers enna folder create cheyunnu athinullil productinu vendi  product-helpers.js enna oru file create cheyunnu ee filinullilayirikum ella functions define cheyunnathu evide define cheyunna functions backi ulla filsil kittan vendi [ module.exports{ define functions } ] module.exportsinullil functions ellam define cheyunnu nammal eethu callback ayum promisayum cheyyan pattum nammal epol callback reethilanu cheyunnathu module.expertsinullil addProduct enna function [ addProduct:(product,callback)=>{ } ] upayogichu oru product add cheyunnu
+
+step 6 -> helpers folderile product-helpers.js enna file ne admin.js il kittanamengil admin.js filil poi aa filine [ var productHelpers=require('../helpers/product-helpers') ] ennighane require cheyugha athinu shesham admin.js il thanneyulla post methodil poi functione call cheyugha [ productHelpers.addProduct(req.body,(resualt)=>{ thalkalatheku aa page avide renter cheyunnu res.render('admin/add-product')}) ] enghane 
+
+step 7 -> mongodb ude connection product-helpers.js il use cheyan vendi athine product-helpers.js il require cheyunnu [ var db=require('../config/connection') ] enghane shesham addProduct functionullil db.get().collection create cheyunnu athil value incert cheyunnu incert cheithathinde resualt edukan vendi .then upayogichu athil data argumentai ulla callback functionil callback(true) ennu kodukunnu 
+
+step 8 -> websitile formil poi kuracu datas submit cheyunnu aa nalkiya data databasil vannitundo ennariyan puthia terminal open cheithu mongodb ude shellil keri check cheyugha 
+      mongo             -> mongodb ude shellil kerunnu
+      show dbs          -> database kal ethokke yennu display cheyunnu 
+      use shoping       -> nammal create cheitha shoping enna databasileku marunnu
+      show collections  -> databasinullil ethoke collections undennu display cheyunnu
+      db.product.find() -> collectionullil enthokke datakalanu ullathu ennu kanan
+
+step 9 -> enni cheyunnathu databsil ulla id upayogichu filil enghane store cheyyamennulathanu athinu adhyam product-helpers.js filil poi addProduct functionullil db.get() enna linil oru callback functio upayogikunnu avide true nu pakaram data.ops[0]._id ennu upayogikuka nammal nalkunna data ops enna array roopathilanu varugha aa arrayil otta object ayathukondu ops[0] ennum nalkunnu aa aryil ninnu id eanna value edukunnathukondu dot ittu _id nalkunnu
+
+step 10 -> next admin.js poi post methode functionullil productHelpers ennathil oru call back function nalkirikunn athil arguementai resualt nalkirikunnu athu id yennu mattuka shesham aa callback functionullil pege render cheynnathinu mughalilai vanna resultile image oru varaiblil store cheyunnu [ let image=req.files.Image ] store cheitha image public folderile product-images enna folderileku mattan folder link upayogikunnu koode id yil result varunnathukondu id um nalkunnu plus ittu extensionum nalkunnu koode oru callback functionum upayogikunnu karanam error undengil check cheyyan err ellengil renderil nalkiya page display cheyum 
