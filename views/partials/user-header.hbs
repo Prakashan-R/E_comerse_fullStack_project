@@ -13,11 +13,13 @@
                         <a class="nav-link" href="/">Products <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carts</a>
+                        <a class="nav-link" href="/cart">Carts</a>
                     </li>
+                    {{#if user}}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
+                    {{/if}}
                 </ul>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
