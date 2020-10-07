@@ -424,7 +424,7 @@ step 6 -> oru variablil oru function create cheyugha aa functionil if condition 
 
 ===============================================================================================================
 
-admin productil items delete cheyanu edit cheyanum ulla buttonsum athinde workingum
+admin productil items delete cheyanum edit cheyanum ulla buttonsum athinde workingum
 -----------------------------------------------------------------------------------
 
 step 1 -> adyam editinum deletinum randu buttonse add cheyyanam athinu adminile view-products.hbs filil a tag 
@@ -457,3 +457,26 @@ response undengil product list cheyunna page product delete chaitha aa page redi
 step 7 -> eni nammal product delete cheyumbol oru alert msg nalkum vidhathilakanam athenghane ennu nokam 
 athinu view-products.hbs filil poi delete buttonde tagil atributai onclickil conform() upayogichu alert 
 message nalkuka
+
+edit cheyannathinte workings
+----------------------------
+
+step 1 -> edit button click cheyumbol edit pagil poi athile contant edit cheithu vendum upadate kodukkunna oru prosesanu nammal evide cheyunnathu athinu adyam product details edit cheyanulla page create cheyanam athinu views folderile admin folderinullil edit-product.hbs file create cheyunnu ennitu athil product edit cheyanulla form create cheyunnu 
+
+step 2 -> view-products.hbs filil poi edit button click cheyumbol eathu productano edit cheyyandathu athinde id this._id vechu pass cheyunnu
+
+step 3 -> admin.js filil poi get methode upayogichu edit-product pagileku pokanulla route set cheyunnu shesham athil databasilulla product details oru variablil store cheyyanam athayathu product-helpersil ulla  getProductDetails enna functione req.params.id vechu call cheyunnu
+
+step 4 -> product-hepers.js filil poi getProductDetails enna function define cheyunnu aa functionil prodId vechu pass cheitha details access cheyunnu aa access cheitha details promisil databasile collectionil ulla product details get() upayogichu eduthu findOne() upayogichu pass cheithu vanna prodId objectakki matti compare cheyunnu compare cheithu kittiya resualt .then upaygichu resolvil pass cheyunnu
+
+step 5 -> anghane pass cheitha product details edit pagil display cheyanam athinu adyam admin.js il vannu ivede ulla product details edit paginte path render cheyunnathinodappam aa detailsum edit-product.hbs il access cheyunna reethiyil pass cheyunnu 
+
+step 6 -> eni edit-product.hbs filil poi oro datayum display cheyikan vendi create cheitha formil paginde pathinodappam product._id pass cheithukondu input taginullil value enna atributil pass cheitha product.Name ennighane name atributil ethallam values ano upayogichirikunnathu athu vechu product. il nalkuka ennal image nalkumbol img tag upayogichanu nalkunnathu
+
+step 7 -> eni namuku edit cheitha product details submit button click cheyumbol aa edit chetha data databasil upadate cheyan adyam admin.js il vannu data databasil store cheyan post methode upayogichu route create cheyunnu routsil ulla datane productHelpers.updateProduct enna functine call cheithu aa functionullil randu values onnu formil ninnu pass cheyunna id um randamathethu aa form datayum pass cheyunnu
+
+step 8 -> productHelpers.updateProduct enna function call cheyanamenghil ee function productHelpers il declaire cheithirkanam athinu product-helpers.js enna filil poi updateProducts enna fuction prodId um productDetails access cheyunna reethiyil declaire cheithu aa functionullil promise upayogichu get() loode databasile collectinilulla PRODUCT_COLLECTION enna datane upadateOne() il vanna prodId ne objatakki mat _id lekku $set methode upayogichu update varuthiya values store cheyunnu aa data resolviloode .then upayogichu pass cheyunnu
+
+step 9 -> anghane admin.js filil vannu productHelpers.updateProduct call cheitha shesham aa fuctionile update chetha dataye admine pegil redirect cheiyhu display cheyunnu
+
+step 10 -> eni image uplode cheyumbol uplode cheyunna image athinte product-images enna folderi poi store avanama athu enghene cheymmennu nokkam athinadyam admin.js filil poi uplode chieyunnidathu image undo ennu if condition upayogichu check cheithu image undengil mv() upayogichu product-images folderileku move cheikunnu

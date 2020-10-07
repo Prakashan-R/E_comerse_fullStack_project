@@ -1,6 +1,7 @@
 var db=require('../config/connection')
 var collection=require('../config/collections')
 const { response } = require('express')
+const collections = require('../config/collections')
 var objectId=require('mongodb').ObjectID
 
 
@@ -26,6 +27,27 @@ module.exports={
             console.log(objectId(prodId))
             db.get().collection(collection.PRODUCT_COLLECTION).removeOne({_id:objectId(prodId)}).then((response)=>{
                 resolve(response)
+            })
+        })
+    },
+    getProductDetails:(prodId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.PRODUCT_COLLECTION).findOne({_id:objectId(prodId)}).then((product)=>{
+                resolve(product)
+            })
+        })
+    },
+    updateProduct:(prodId,proDetails)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.PRODUCT_COLLECTION).updateOne({_id:objectId(prodId)},{
+                $set:{
+                    Name:proDetails.Name,
+                    Category:proDetails.Category,
+                    Price:proDetails.Price,
+                    Description:proDetails.Description
+                }
+            }).then((response)=>{
+                resolve()
             })
         })
     }
