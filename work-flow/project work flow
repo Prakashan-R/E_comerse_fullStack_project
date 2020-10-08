@@ -405,22 +405,35 @@ error undo ennu check cheyumm undengil p tagil error msg print cheikunnu ee erro
 pakaram user.js filil loginte post methodilulla if conditionile else partil loginErr true ennu ulla edathil
 error msg nalkuka [ req.session.loginErr=true (true nu pakaram msg nalkuka) ]
 
+step 11 -> signup cheyumbol thanne session create cheithu  cheynnathu nokkam adyam user.js filil poi signupinde post methodil loginil nalkirikunna same code thanneyanu sessionu vendi signupilum nalkunnathu ennal req.session.user=response.user ennullidathu .user ozhivakki req.session.user=response ennu matram nalkiyal mathi
+
 ===============================================================================================================
 
 Cart section create cheyamennu
 -------------------------------
 
-step 1 -> nammal vanghan udheshikunna sahananghal cartil add cheithu vekkanam atinu cart enna oru hbs file create cheyugha athinu views folderil poi user folderil cart.hbs enna file create cheyunnu 
+step 1 -> nammal vanghan udheshikunna sahananghal cartil add cheithu vekkanam atinu cart enna oru hbs file 
+create cheyugha athinu views folderil poi user folderil cart.hbs enna file create cheyunnu 
 
-step 2 -> user.js filil poi cartinulla routes get methodil set cheyunnu aa routesileku cart filine call cheyunnu
+step 2 -> user.js filil poi cartinulla routes get methodil set cheyunnu aa routesileku cart filine call 
+cheyunnu
 
 step 3 -> cart.hbs filil poi avide datakal nalkunnu( thalkalam cart empty ennu nalkunnu)
 
-step 4 -> user-headeril cart option click cheyumbol cart pagileku pokuvan ulla ling cartinde a tagil href enna atributil nalkunnu 
+step 4 -> user-headeril cart option click cheyumbol cart pagileku pokuvan ulla ling cartinde a tagil href 
+enna atributil nalkunnu 
 
-step 5 -> eni namuku login cheyatha all cart ennu click cheyumbol cartileku poghathe login pagileku poghanam athu enghane set cheyum ennu nokkam onnil koduthal options undakunna samaythu oro optionsilum user login ano ennu sessionil check cheyandi varum anghane akumbol ella optionsilum keri check cheyandi varum anghane check cheyunnathinu pakaram nammal oru midle ware use cheithu check cheyunnu athenghane yennu nokkam 
+step 5 -> eni namuku login cheyatha allu cart ennu click cheyumbol cartileku poghathe login pagileku poghanam 
+athu enghane set cheyum ennu nokkam cart matramalla mattu pala optionsilum user logined ano ennu check
+cheyyandi varum anghane onnil koduthal options undakunna samaythu oro optionsilum user login ano ennu
+sessionil check cheyandi varum anghane akumbol ella optionsilum keri check cheyandi varum anghane check 
+cheyunnathinu pakaram nammal oru midle ware use cheithu check cheyunnu athenghane yennu nokkam 
 
-step 6 -> oru variablil oru function create cheyugha aa functionil if condition upayogichu option click cheithal user already login cheitha userano ennu session data vechu check cheyunnu anengil next() upayogichu adutha stepileku pogunnu login cheyatha vykthi yanengil aa login pagileku pogunna reethiyil fuction create cheithu oru variablil store cheyunnu aa vareable optionsinde get methodil routes set cheyumbol paginte route nalkunnathinu munnea midlewear function store cheitha variable nalkuka
+step 6 -> oru variablil oru function create cheyugha aa functionil if condition upayogichu option click 
+cheithal user already login cheitha userano ennu session data vechu check cheyunnu anengil next() upayogichu 
+adutha stepileku pogunnu login cheyatha vykthi yanengil aa login pagileku pogunna reethiyil fuction create 
+cheithu oru variablil store cheyunnu aa vareable optionsinde get methodil routes set cheyumbol paginte route 
+nalkunnathinu munnea midlewear function store cheitha variable nalkuka
 
 ===============================================================================================================
 
@@ -461,22 +474,85 @@ message nalkuka
 edit cheyannathinte workings
 ----------------------------
 
-step 1 -> edit button click cheyumbol edit pagil poi athile contant edit cheithu vendum upadate kodukkunna oru prosesanu nammal evide cheyunnathu athinu adyam product details edit cheyanulla page create cheyanam athinu views folderile admin folderinullil edit-product.hbs file create cheyunnu ennitu athil product edit cheyanulla form create cheyunnu 
+step 1 -> edit button click cheyumbol edit pagil poi athile contant edit cheithu vendum upadate kodukkunna oru
+prosesanu nammal evide cheyunnathu athinu adyam product details edit cheyanulla page create cheyanam athinu 
+views folderile admin folderinullil edit-product.hbs file create cheyunnu ennitu athil product edit cheyanulla
+form create cheyunnu 
 
-step 2 -> view-products.hbs filil poi edit button click cheyumbol eathu productano edit cheyyandathu athinde id this._id vechu pass cheyunnu
+step 2 -> view-products.hbs filil poi edit button click cheyumbol eathu productano edit cheyyandathu athinde 
+id this._id vechu pass cheyunnu
 
-step 3 -> admin.js filil poi get methode upayogichu edit-product pagileku pokanulla route set cheyunnu shesham athil databasilulla product details oru variablil store cheyyanam athayathu product-helpersil ulla  getProductDetails enna functione req.params.id vechu call cheyunnu
+step 3 -> admin.js filil poi get methode upayogichu edit-product pagileku pokanulla route set cheyunnu 
+shesham athil databasilulla product details oru variablil store cheyyanam athayathu product-helpersil ulla  
+getProductDetails enna functione req.params.id vechu call cheyunnu
 
-step 4 -> product-hepers.js filil poi getProductDetails enna function define cheyunnu aa functionil prodId vechu pass cheitha details access cheyunnu aa access cheitha details promisil databasile collectionil ulla product details get() upayogichu eduthu findOne() upayogichu pass cheithu vanna prodId objectakki matti compare cheyunnu compare cheithu kittiya resualt .then upaygichu resolvil pass cheyunnu
+step 4 -> product-hepers.js filil poi getProductDetails enna function define cheyunnu aa functionil prodId 
+vechu pass cheitha details access cheyunnu aa access cheitha details promisil databasile collectionil ulla 
+product details get() upayogichu eduthu findOne() upayogichu pass cheithu vanna prodId objectakki matti 
+compare cheyunnu compare cheithu kittiya resualt .then upaygichu resolvil pass cheyunnu
 
-step 5 -> anghane pass cheitha product details edit pagil display cheyanam athinu adyam admin.js il vannu ivede ulla product details edit paginte path render cheyunnathinodappam aa detailsum edit-product.hbs il access cheyunna reethiyil pass cheyunnu 
+step 5 -> anghane pass cheitha product details edit pagil display cheyanam athinu adyam admin.js il vannu 
+ivede ulla product details edit paginte path render cheyunnathinodappam aa detailsum edit-product.hbs il 
+access cheyunna reethiyil pass cheyunnu 
 
-step 6 -> eni edit-product.hbs filil poi oro datayum display cheyikan vendi create cheitha formil paginde pathinodappam product._id pass cheithukondu input taginullil value enna atributil pass cheitha product.Name ennighane name atributil ethallam values ano upayogichirikunnathu athu vechu product. il nalkuka ennal image nalkumbol img tag upayogichanu nalkunnathu
+step 6 -> eni edit-product.hbs filil poi oro datayum display cheyikan vendi create cheitha formil paginde 
+pathinodappam product._id pass cheithukondu input taginullil value enna atributil pass cheitha product.Name 
+ennighane name atributil ethallam values ano upayogichirikunnathu athu vechu product. il nalkuka ennal image 
+nalkumbol img tag upayogichanu nalkunnathu
 
-step 7 -> eni namuku edit cheitha product details submit button click cheyumbol aa edit chetha data databasil upadate cheyan adyam admin.js il vannu data databasil store cheyan post methode upayogichu route create cheyunnu routsil ulla datane productHelpers.updateProduct enna functine call cheithu aa functionullil randu values onnu formil ninnu pass cheyunna id um randamathethu aa form datayum pass cheyunnu
+step 7 -> eni namuku edit cheitha product details submit button click cheyumbol aa edit chetha data databasil
+upadate cheyan adyam admin.js il vannu data databasil store cheyan post methode upayogichu route create
+cheyunnu routsil ulla datane productHelpers.updateProduct enna functine call cheithu aa functionullil randu
+values onnu formil ninnu pass cheyunna id um randamathethu aa form datayum pass cheyunnu
 
-step 8 -> productHelpers.updateProduct enna function call cheyanamenghil ee function productHelpers il declaire cheithirkanam athinu product-helpers.js enna filil poi updateProducts enna fuction prodId um productDetails access cheyunna reethiyil declaire cheithu aa functionullil promise upayogichu get() loode databasile collectinilulla PRODUCT_COLLECTION enna datane upadateOne() il vanna prodId ne objatakki mat _id lekku $set methode upayogichu update varuthiya values store cheyunnu aa data resolviloode .then upayogichu pass cheyunnu
+step 8 -> productHelpers.updateProduct enna function call cheyanamenghil ee function productHelpers il
+declaire cheithirkanam athinu product-helpers.js enna filil poi updateProducts enna fuction prodId um
+productDetails access cheyunna reethiyil declaire cheithu aa functionullil promise upayogichu get() loode
+databasile collectinilulla PRODUCT_COLLECTION enna datane upadateOne() il vanna prodId ne objatakki mat _id
+lekku $set methode upayogichu update varuthiya values store cheyunnu aa data resolviloode .then upayogichu
+pass cheyunnu
 
-step 9 -> anghane admin.js filil vannu productHelpers.updateProduct call cheitha shesham aa fuctionile update chetha dataye admine pegil redirect cheiyhu display cheyunnu
+step 9 -> anghane admin.js filil vannu productHelpers.updateProduct call cheitha shesham aa fuctionile update
+chetha dataye admine pegil redirect cheiyhu display cheyunnu
 
-step 10 -> eni image uplode cheyumbol uplode cheyunna image athinte product-images enna folderi poi store avanama athu enghene cheymmennu nokkam athinadyam admin.js filil poi uplode chieyunnidathu image undo ennu if condition upayogichu check cheithu image undengil mv() upayogichu product-images folderileku move cheikunnu
+step 10 -> eni image uplode cheyumbol uplode cheyunna image athinte product-images enna folderi poi store
+avanama athu enghene cheymmennu nokkam athinadyam admin.js filil poi uplode chieyunnidathu image undo ennu
+if condition upayogichu check cheithu image undengil mv() upayogichu product-images folderileku move 
+cheikunnu
+
+step 11 -> eni namuku edit cheyumbol image mattam varuthughayanengil imagente input fieldil image uplode cheyunna samayathu muglilulla image uplode cheitha imagai maranam athinu nammal edit-product.hbs filil poi img tagil oru id atributil oru id name nalkunnu input fieldil onchenge atributil oru javascript viewImage enna functione call cheyunnu 
+
+step 12 -> from sectionu thazhe script tagil viewImage enna function declaire cheithu athil img taginte id upayogicu src atributil uplode cheitha imaginte path URL.createObjectURL enna methodil event.target.files[0] ennupayogichu image mattam varuthunnu
+
+===============================================================================================================
+
+cart sectionil product add cheyunnu
+------------------------------------
+
+nammal ethinu munne cart page dummyay create chethirunnu aa pagileku enni productil undavunna cart button click cheyumbol aa product cart pagil add cheithu varanam athinu nammal enthokkeyanu cheyyandathu ennu nokkam
+
+step 1 -> adyam databasil cartinu vendi oru collection create cheyanam athu userinte id vechittanu create cheyugha athinu nammal user.js filil poi get methode upayogichukondu cartilek session keep cheithu id pass cheithu kondu route set cheyunnu 
+
+step 2 -> route set cheitha shesham view-products.hbs filil poi add to cartinde a tagile hrefile poi productinte id nalki action set cheyunnu aa product id vechanu userinte cartinde arrayileku push cheithu vekkunnathu 
+
+step 3 -> action set cheitha shesham user.js filil poi route set cheithidathu addToCart enna functione callchethu athil productinde id um eathu useranu ennulla karyam retuarn cheyunnu
+
+step 4 -> helpersile user-helpers.js filil poi addToCart enna function declaire cheyunnu routesunnu return cheyunna dataye parameters upayogichu accept cheyunnu aa functionil promise upayogichu kondu adyam usernu databasil get() upayogichu collectionil ulla data il findOne() il vanna user data databasil undo ennu check cheyunnu undenghil aa cart if condition upayogichu update cheithal mathi 
+
+step 5 -> already cart undengil get() lude databasile collectionilulla dataye updateOne() methodil objectil user id upayogichu athinullil ethokke datayanu set cheyandethennu set methode upayogichu oraileku datakalellam push cheyunnu
+
+step 5 -> athava cart ellaenghil avide nammal cart create cheyyanam anghane cart create cheyumbol cartil add cheyunnathu userinte detailsum productinde detailsumairikum appo athu oru object upayogichairikum nalkuka pinnidu aa object databasil insertOne methode upayogichu store cheyyunnu
+
+step 6 -> user.js filil poi addToCart function call cheyunnidathu .then upayogichu product list cheyunnidathu redairect cheyunnu
+
+step 7 -> eni namuku ee cartil add cheitha products ellam cart pagil display cheikanam athenghane cheyumennu nokkam athinadyam user.js filil poi cart paginte route set cheitha edathu oru variablil store cheithu kondu userHelpersilulla data store cheithu vechirikunna getCardProducts enna functione call cheyunnu with userinde id return cheithu kondu
+
+step 8 -> user-helper.js filil poi getCartProduct enna function define cheyunnu userId parameterai use cheithu function create cheyunnu afunctionil promise use cheithukondu oru variable create cheithu athileku databasile cartile collectionil poittu aa userinde documentsinde ullile productsil ids undavum aa id isinte details products enna collectionil unde athu eduthu store cheyunnu athenghne nokkam athine upayogikunnathanu aggregate methode
+
+step 9 -> aggregation enghaneyennu nokkam aadyam match cheikunnu ennu vechal user id iku matchaya prodectine edukunnu anghane product kittiyathinu shesham lookup nalki athil evidunnanu products eduthukondu varendathennum pinne cartinullile $products oru variablilote(proList) eduthu vekunnu eni pipelines ennathil ee products array ayathukondu athile oro products collectionullile id match cheikanam $match nullil array ayathukonde $expr upayogikunnu ethinullil $in um upayogichu product collectionullile id $$prodList ile id umaittu match cheyunnu ennittu aa data eduthu vannu 
+
+step 10 -> pipeline sectionu thazhe ippo namuku productinde list kittitunde aa list cartinde objectleku attached cheitha oru objectanu kittannathu athu cartItem peril store cheyyannu eni aggregation sectioninde avasanam .toArray lottu mattunnu ennittu resolvil cartItems nalkunnu
+
+step 11 -> eni namma cart cheitha products cart pagil display cheikkanam athu namukku nokkam adyam ethu consolil print cheyunna samayathu oru userinu otta cart matrame ullu namukku athilulla cartItems enna field matram return cheitha matram mathi
+
+step 12 -> athinu aggregationu thazhe nalkiya resolvil cartItems[0].cartItems ennu nalkunnu
