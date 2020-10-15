@@ -489,9 +489,9 @@ findOne() il vanna user data databasil undo ennu check cheyunnu undenghil aa car
 step 5 -> already cart undengil get() lude databasile collectionilulla dataye updateOne() methodil objectil user id upayogichu athinullil 
 ethokke datayanu set cheyandethennu set methode upayogichu oraileku datakalellam push cheyunnu
 
-step 5 -> athava cart ellaenghil avide nammal cart create cheyyanam anghane cart create cheyumbol cartil add cheyunnathu userinte detailsum 
-productinde detailsumairikum appo athu oru object upayogichairikum nalkuka pinnidu aa object databasil insertOne methode upayogichu store 
-cheyyunnu
+step 5 -> athava cart ellaenghil avide nammal cart create cheyyanam anghane cart create cheyumbol cartil add cheyunnathu userinte 
+detailsum productinde detailsumairikum appo athu oru object upayogichairikum nalkuka pinnidu aa object databasil insertOne methode 
+upayogichu store cheyyunnu
 
 step 6 -> user.js filil poi addToCart function call cheyunnidathu .then upayogichu product list cheyunnidathu redairect cheyunnu
 
@@ -500,32 +500,34 @@ filil poi cart paginte route set cheitha edathu oru variablil store cheithu kond
 getCardProducts enna functione call cheyunnu with userinde id return cheithu kondu
 
 step 8 -> user-helper.js filil poi getCartProduct enna function define cheyunnu userId parameterai use cheithu function create cheyunnu 
-afunctionil promise use cheithukondu oru variable create cheithu athileku databasile cartile collectionil poittu aa userinde documentsinde 
-ullile productsil ids undavum aa id isinte details products enna collectionil unde athu eduthu store cheyunnu athenghne nokkam athine 
-upayogikunnathanu aggregate methode
+afunctionil promise use cheithukondu oru variable create cheithu athileku databasile cartile collectionil poittu aa userinde 
+documentsinde ullile productsil ids undavum aa id isinte details products enna collectionil unde athu eduthu store cheyunnu athenghne 
+nokkam athine upayogikunnathanu aggregate methode
 
 step 9 -> aggregation enghaneyennu nokkam aadyam match cheikunnu ennu vechal user id iku matchaya prodectine edukunnu anghane product 
-kittiyathinu shesham lookup nalki athil evidunnanu products eduthukondu varendathennum pinne cartinullile $products oru 
-variablilote(proList) eduthu vekunnu eni pipelines ennathil ee products array ayathukondu athile oro products collectionullile id match 
-cheikanam $match nullil array ayathukonde $expr upayogikunnu ethinullil $in um upayogichu product collectionullile id $$prodList ile id 
-umaittu match cheyunnu ennittu aa data eduthu vannu 
+kittiyathinu shesham athine unwaind cheyunnu unwaind cheyunnathu aa user cartile productisinde product id um quantityum oru objectakki
+mattan athu cheitha shesham aa productunnu display cheikkan namukku avishyamulla sadhanaghal matram project chethu vekunnu eni lookup 
+nalki athil productsil poittu productsinde details eduthu kondu varenam athil fromil PRODUCT_COLLECTION details eadukkunnu pinne 
+cartinullil ninnu varunna item localFieldilum nalkunnu products collectionile eanthu fieldanennu nalkunnathinu foreignField 
+upayogikunnu eni eanthu item anennu as upayogichu nalkunnu ennitu store cheyunnu
 
-step 10 -> pipeline sectionu thazhe ippo namuku productinde list kittitunde aa list cartinde objectleku attached cheitha oru objectanu kittannathu athu cartItem peril store cheyyannu eni aggregation sectioninde avasanam .toArray lottu mattunnu ennittu resolvil cartItems nalkunnu
 
-step 11 -> eni namma cart cheitha products cart pagil display cheikkanam athu namukku nokkam adyam ethu consolil print cheyunna samayathu 
-oru userinu otta cart matrame ullu namukku athilulla cartItems enna field matram return cheitha matram mathi
+step 10 -> eni aggregation sectioninde avasanam .toArray lottu mattunnu ennittu resolvil cartItems nalkunnu shesham nammal cart cheitha 
+products cart pagil display cheikkanam athu namukku nokkam adyam ethu consolil print cheyunna samayathu oru userinu otta cart matrame 
+ullu namukku athilulla cartItems enna field matram return cheitha matram mathi athinu shesham aggregationu thazhe nalkiya resolvil 
+cartItems[0].cartItems ennu nalkunnu cartItems enna field sepratai edukuvan
 
-step 12 -> athinu aggregationu thazhe nalkiya resolvil cartItems[0].cartItems ennu nalkunnu cartItems enna field sepratai edukuvan 
-
-step 13 -> eni user.js filil poi cart pagileku route set cheithidathu page render cheyyan vendi patha pass cheyunna edathu ee products um 
+step 11 -> eni user.js filil poi cart pagileku route set cheithidathu page render cheyyan vendi patha pass cheyunna edathu ee products um 
 pass cheyunnu koodathe nammal cart pagileku kerikazhinjal avide Acount ennu kanam athinu pakaram avide userinte name nalkunnathinu userude 
 name ulla session pass cheyunnu
 
-step 14 -> eni athu display cheyyan cart.hbs filil poi for loop(each) function upayogichu etra items cart cheyunnuvo motham display 
-cheyann vendiyanu ennittu athile oro valuevum this. upayogichu call cheyunnu 
+step 12 ->  eni athu display cheyyan cart.hbs filil poi for loop(each) function upayogichu etra items cart cheyunnuvo athu motham display 
+cheyann vendiyanu ennittu athilnullil enniyoru loop(each) upayogichu imagum namum this. upayogichu call cheyunnu count adhyathe loopil 
+nalkunnu
 
-step 15 -> eni nammal cart pagile shoping cart enna option click cheyumbol home pagileku redairect cheyunnam athinu user-hesde.hbs filil 
+step 13 -> eni nammal cart pagile shoping cart enna option click cheyumbol home pagileku redairect cheyunnam athinu user-header.hbs filil 
 poi home pagilekulla path nalkunnu
+
 
 =============================================================================================================================================
 Ajax enghane ethil use cheyunnu ennu kanam
@@ -568,10 +570,20 @@ responsai enthano thirichu varunnathu alertil nalkunnu ee script.js file link le
 cheyunnu 
 
 step 8 -> nammal ethu ethu ajax upayogichu cheyunnathu kondu avide verifyLogin work avunnathalla karanam verifyLogin cookiesilanu work 
-cheyunnathu kondanu athu work cheyyanamenghil hedearil attach cheithu nalkendi varum athukonde verifyLogin ozhivakki thazhe page redirect 
-cheyan kodutha sthalathu responsaittu JSON formattil true enna status nalkunnu athenthanennu vechal productinte cart button click cheyumbol 
-aa data objectai sendavum
+cheyunnathu kondanu athu work cheyyanamenghil hedearil attach cheithu nalkendi varum athukonde verifyLogin ozhivakki thazhe page r
+edirect cheyan kodutha sthalathu responsaittu JSON formattil true enna status nalkunnu athenthanennu vechal productinte cart button 
+click cheyumbol aa data objectai sendavum
 
 step 9 -> script.js filile ajaxil poi if condition upayogichu vanna response true anengil count chenge cheyanam athinu user-header.hbs 
 filil poi cartCount nalkiya span taginu oru id cart-count ennu set cheithu eni athinde value chenge cheyan vendum script.js filil vannu 
 status true anenghil already ulla count eduthu intigerilottu matti athinodappam onnu add cheyunnu avide thanne value set cheyunnu
+
+step 10 -> ethuvare cartil add cheutha productsil same products undengil athu etrannam add cheithuvennu display cheyunnilla athu 
+displaya cheyikkanam user-helpers.js filil poi addToCart enna functionil poi puthiya oru cart create cheyunnathanenghil returnu munne 
+itemum Quantityumulla oru object create cheyugha athinu shesham if conditionil else partil poi productsinde array nullil aa declaire 
+cheitha object nalkuka
+
+step 11 -> eni athava cart undenghil if sectionil poi adyam uder add cheyyan nalkiya product cartil undo ennu check cheithu undenghil 
+0 vum ellanghil -1 um values oru variablil store cheyunnu aa variable eduthu if conditionil condition check cheithu product undenghil 
+aa product upadate cheithu quantity increase cheyunnu athava ellenghil puthiyoru product create cheithathu push cheithu already 
+vechitundu
